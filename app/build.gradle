@@ -17,7 +17,7 @@ android {
 
     defaultConfig {
         applicationId "dev.anuj.iconfinder"
-        minSdk 24
+        minSdk 22
         targetSdk 32
         versionCode 1
         versionName "0.1"
