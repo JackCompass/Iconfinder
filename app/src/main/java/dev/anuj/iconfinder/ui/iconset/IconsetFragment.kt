@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import dev.anuj.iconfinder.databinding.FragmentIconsetBinding
@@ -31,7 +32,7 @@ class IconsetFragment : Fragment() {
         viewModel.iconsets.observe(viewLifecycleOwner) {
             binding.recyclerViewIconsets.apply {
                 adapter = IconsetAdapter(it) {
-
+                    findNavController().navigate(IconsetFragmentDirections.actionIconsetFragmentToIconsFragment(it.iconset_id))
                 }
             }
         }
