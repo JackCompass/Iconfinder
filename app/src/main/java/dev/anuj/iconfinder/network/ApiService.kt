@@ -23,6 +23,7 @@ interface ApiService {
     @GET("categories/{category_id}/iconsets")
     suspend fun getIconSets(
         @Path("category_id") categoryId: String,
+        @Query("count") count: Int = 25,
     ): IconsetResponse
 
     @GET("iconsets/{iconset_id}/icons")

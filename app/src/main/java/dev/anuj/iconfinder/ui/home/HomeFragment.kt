@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import dev.anuj.iconfinder.databinding.FragmentHomeBinding
-import dev.anuj.iconfinder.ui.CategoriesAdapter
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {

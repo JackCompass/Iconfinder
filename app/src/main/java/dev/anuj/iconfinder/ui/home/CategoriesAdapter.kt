@@ -1,4 +1,4 @@
-package dev.anuj.iconfinder.ui
+package dev.anuj.iconfinder.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
