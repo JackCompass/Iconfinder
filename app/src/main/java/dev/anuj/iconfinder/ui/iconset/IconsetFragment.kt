@@ -29,7 +29,11 @@ class IconsetFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.iconsets.observe(viewLifecycleOwner) {
+            binding.recyclerViewIconsets.apply {
+                adapter = IconsetAdapter(it) {
 
+                }
+            }
         }
 
         viewModel.getIconsets(args.categoryId)
