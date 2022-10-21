@@ -15,11 +15,14 @@
 
         <TextView
             android:id="@+id/textView_iconset_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:text="Iconset Name"
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toStartOf="@+id/textView_icon_count"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView_author"
