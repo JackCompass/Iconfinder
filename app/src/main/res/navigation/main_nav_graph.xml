@@ -34,5 +34,17 @@
         <argument
             android:name="iconsetId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_iconsFragment_to_iconDownloadFragment"
+            app:destination="@id/iconDownloadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/iconDownloadFragment"
+        android:name="dev.anuj.iconfinder.ui.icondownload.IconDownloadFragment"
+        android:label="fragment_icon_download"
+        tools:layout="@layout/fragment_icon_download" >
+        <argument
+            android:name="iconId"
+            app:argType="integer" />
     </fragment>
 </navigation>
