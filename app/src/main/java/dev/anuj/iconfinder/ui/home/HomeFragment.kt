@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Recycler
 import dagger.hilt.android.AndroidEntryPoint
+import dev.anuj.iconfinder.R
 import dev.anuj.iconfinder.databinding.FragmentHomeBinding
 
 @AndroidEntryPoint
@@ -31,6 +32,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.fabSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_iconSearchFragment)
+        }
 
         val adapter = CategoriesAdapter {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToIconsetFragment(it))

@@ -10,7 +10,7 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("search")
+    @GET("icons/search")
     suspend fun searchIcons(
         @Query("query") query: String,
     ): IconResponse
