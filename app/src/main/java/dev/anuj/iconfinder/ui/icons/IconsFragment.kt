@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import dev.anuj.iconfinder.R
@@ -31,7 +32,7 @@ class IconsFragment : Fragment() {
 
         viewModel.icons.observe(viewLifecycleOwner) {
             binding.recyclerViewIcons.adapter = IconsAdapter(it) {
-
+                findNavController().navigate(IconsFragmentDirections.actionIconsFragmentToIconDownloadFragment(it.icon_id))
             }
         }
 

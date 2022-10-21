@@ -1,6 +1,7 @@
 package dev.anuj.iconfinder.network
 
 import dev.anuj.iconfinder.data.CategoriesResponse
+import dev.anuj.iconfinder.data.Icon
 import dev.anuj.iconfinder.data.IconResponse
 import dev.anuj.iconfinder.data.IconsetResponse
 import retrofit2.http.GET
@@ -30,4 +31,9 @@ interface ApiService {
     suspend fun getIcons(
         @Path("iconset_id") iconsetId: Int,
     ): IconResponse
+
+    @GET("icons/{icon_id}")
+    suspend fun getIcon(
+        @Path("icon_id") iconId: Int,
+    ): Icon
 }

@@ -26,7 +26,7 @@ class IconsAdapter(
             imageViewIcon.load(icon.raster_sizes.find { it.size == 128 }?.formats?.get(0)?.preview_url)
             textViewIconId.text = icon.icon_id.toString()
             textViewIconTags.text = icon.tags.joinToString(", ")
-            imageViewIconDownload.setImageResource(if (icon.is_premium) R.drawable.baseline_attach_money else R.drawable.baseline_cloud_download)
+            imageViewIconDownload.setImageResource(if (icon.is_premium) R.drawable.baseline_attach_money else R.drawable.ic_download)
 
             if (!icon.is_premium) imageViewIconDownload.setOnClickListener {
                 onDownloadClick(icon)

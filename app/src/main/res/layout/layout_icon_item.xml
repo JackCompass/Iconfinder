@@ -57,7 +57,7 @@
             app:layout_constraintTop_toBottomOf="@id/textView_icon_tags"
             app:layout_constraintBottom_toBottomOf="parent"
             android:foreground="?android:attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/baseline_cloud_download"/>
+            android:src="@drawable/ic_download"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
