@@ -17,8 +17,8 @@ interface ApiService {
 
     @GET("categories")
     suspend fun getCategories(
-        @Query("count") count: Int = 25,
         @Query("after") after: String? = null,
+        @Query("count") count: Int = 25,
     ): CategoriesResponse
 
     @GET("categories/{category_id}/iconsets")
