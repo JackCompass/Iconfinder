@@ -6,8 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.Recycler
 import dagger.hilt.android.AndroidEntryPoint
+import dev.anuj.iconfinder.R
 import dev.anuj.iconfinder.databinding.FragmentHomeBinding
 
 @AndroidEntryPoint
@@ -27,12 +33,28 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.fabSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_iconSearchFragment)
+        }
+
+        val adapter = CategoriesAdapter {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToIconsetFragment(it))
+        }
+        binding.recyclerViewCategories.adapter = adapter
+
         viewModel.categories.observe(viewLifecycleOwner) {
-            binding.recyclerViewCategories.apply {
-                adapter = CategoriesAdapter(it) {
-                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToIconsetFragment(it))
+            adapter.submitList(it)
+        }
+
+        binding.recyclerViewCategories.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val totalItemCount = binding.recyclerViewCategories.layoutManager?.itemCount ?: 0
+                val lastVisible = (binding.recyclerViewCategories.layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
+
+                if (totalItemCount > 0 && (lastVisible + 5) >= totalItemCount) {
+                    viewModel.getCategories()
                 }
             }
-        }
+        })
     }
 }

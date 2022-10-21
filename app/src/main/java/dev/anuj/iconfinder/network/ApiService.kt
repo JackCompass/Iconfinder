@@ -10,15 +10,15 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("search")
+    @GET("icons/search")
     suspend fun searchIcons(
         @Query("query") query: String,
     ): IconResponse
 
     @GET("categories")
     suspend fun getCategories(
-        @Query("count") count: Int = 25,
         @Query("after") after: String? = null,
+        @Query("count") count: Int = 25,
     ): CategoriesResponse
 
     @GET("categories/{category_id}/iconsets")

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_iconsetFragment"
             app:destination="@id/iconsetFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_iconSearchFragment"
+            app:destination="@id/iconSearchFragment" />
     </fragment>
     <fragment
         android:id="@+id/iconsetFragment"
@@ -46,5 +49,14 @@
         <argument
             android:name="iconId"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/iconSearchFragment"
+        android:name="dev.anuj.iconfinder.ui.search.IconSearchFragment"
+        android:label="fragment_icon_search"
+        tools:layout="@layout/fragment_icon_search" >
+        <action
+            android:id="@+id/action_iconSearchFragment_to_iconDownloadFragment"
+            app:destination="@id/iconDownloadFragment" />
     </fragment>
 </navigation>
